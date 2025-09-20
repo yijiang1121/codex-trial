@@ -6,56 +6,108 @@
   <title>Large Model Training Essentials</title>
   <style>
     :root {
-      color-scheme: light dark;
       font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      background: #f5f7fb;
-      color: #1c1f24;
+      color: #0f172a;
+      background-color: #eef2ff;
+      line-height: 1.65;
     }
 
     body {
       margin: 0;
-      padding: 32px 12px 64px;
+      padding: 48px 16px 72px;
       display: flex;
       justify-content: center;
-      background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+      box-sizing: border-box;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 50%, #eef2ff 100%);
+      color: inherit;
     }
 
     main {
-      width: min(900px, 100%);
-      background: #ffffffcc;
-      backdrop-filter: blur(4px);
-      border-radius: 20px;
-      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.16);
-      padding: clamp(28px, 5vw, 54px);
+      width: min(880px, 100%);
+      background-color: #ffffff;
+      padding: clamp(28px, 5vw, 52px);
+      border-radius: 24px;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(148, 163, 184, 0.22);
       box-sizing: border-box;
     }
 
     header {
-      text-align: center;
       margin-bottom: 32px;
     }
 
-    h1 {
+    header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4.8vw, 2.8rem);
+      letter-spacing: -0.01em;
+    }
+
+    header .lead {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      color: #1f2937;
+      color: #475569;
+      font-size: 1.05rem;
+      max-width: 65ch;
     }
 
-    header p {
-      margin: 12px auto 0;
-      max-width: 640px;
-      color: #4b5563;
-    }
-
-    section {
-      margin-bottom: 36px;
+    section + section {
+      margin-top: 40px;
     }
 
     h2 {
-      margin-bottom: 12px;
-      font-size: clamp(1.4rem, 4vw, 1.8rem);
-      color: #111827;
+      margin: 0 0 16px;
+      font-size: clamp(1.45rem, 3.8vw, 1.9rem);
+      color: #1d2d44;
+      letter-spacing: -0.005em;
+    }
+
+    p {
+      margin: 12px 0;
+      color: #334155;
+    }
+
+    ul,
+    ol {
+      margin: 16px 0;
+      padding-left: 22px;
+      color: #475569;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .highlight {
+      background-color: #eef2ff;
+      padding: 18px 20px;
+      border-radius: 16px;
+      border-left: 4px solid #4f46e5;
+      color: #312e81;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    .card-grid,
+    .pros-cons {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card,
+    .step,
+    .pros-cons section {
+      background-color: #f8fafc;
+      border-radius: 18px;
+      padding: 20px 22px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 14px 28px rgba(148, 163, 184, 0.16);
+    }
+
+    .card h3,
+    .pros-cons h3 {
+      margin-top: 0;
+      font-size: 1.18rem;
+      color: #1d4ed8;
     }
 
     .step-list {
@@ -63,125 +115,63 @@
       margin: 0;
       padding: 0;
       display: grid;
-      gap: 16px;
-    }
-
-    .step {
-      border-radius: 16px;
-      padding: 18px 22px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      gap: 18px;
     }
 
     .step strong {
       display: block;
       font-size: 1.05rem;
       margin-bottom: 6px;
-      color: #1f2937;
+      color: #0f172a;
     }
 
-    .card-grid {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #dbeafe;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.08);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #1d4ed8;
-      font-size: 1.15rem;
-    }
-
-    .highlight {
-      border-left: 4px solid #6366f1;
-      padding: 16px 20px;
-      background: #eef2ff;
-      border-radius: 12px;
-      color: #3730a3;
+    .note {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background-color: #fff7ed;
+      border-left: 4px solid #f97316;
+      border-radius: 18px;
+      color: #9a3412;
+      box-shadow: 0 12px 24px rgba(251, 191, 36, 0.18);
     }
 
     dl {
       display: grid;
-      gap: 12px;
+      gap: 16px;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: 0;
     }
 
     dt {
       font-weight: 600;
-      color: #1f2937;
+      color: #0f172a;
     }
 
     dd {
-      margin: 4px 0 0;
-      color: #4b5563;
-    }
-
-    ul {
-      padding-left: 20px;
-      color: #4b5563;
+      margin: 6px 0 0;
+      color: #475569;
     }
 
     footer {
-      font-size: 0.9rem;
-      color: #6b7280;
+      margin-top: 48px;
       text-align: center;
-      margin-top: 40px;
+      color: #64748b;
+      font-size: 0.95rem;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        background: #0f172a;
-        color: #e2e8f0;
-      }
-
+    @media (max-width: 600px) {
       body {
-        background: radial-gradient(circle at top, rgba(59, 130, 246, 0.28), transparent), #0f172a;
+        padding: 32px 12px 56px;
       }
 
       main {
-        background: rgba(15, 23, 42, 0.7);
-        box-shadow: 0 24px 52px rgba(15, 23, 42, 0.6);
+        border-radius: 20px;
       }
 
-      h1,
-      h2,
-      dt,
-      .card h3 {
-        color: #e0e7ff;
-      }
-
-      header p,
-      dd,
-      ul,
+      .card,
       .step,
-      footer {
-        color: #cbd5f5;
-      }
-
-      .step {
-        background: rgba(79, 70, 229, 0.1);
-        border-color: rgba(129, 140, 248, 0.3);
-      }
-
-      .card {
-        background: rgba(30, 41, 59, 0.8);
-        border-color: rgba(129, 140, 248, 0.3);
-        box-shadow: 0 18px 36px rgba(30, 41, 59, 0.7);
-      }
-
-      .highlight {
-        background: rgba(165, 180, 252, 0.08);
-        color: #a5b4fc;
-        border-left-color: #818cf8;
+      .pros-cons section {
+        box-shadow: 0 10px 24px rgba(148, 163, 184, 0.14);
       }
     }
   </style>
@@ -190,7 +180,7 @@
   <main>
     <header>
       <h1>Large Model Training Essentials</h1>
-      <p>
+      <p class="lead">
         A friendly walkthrough of how modern large language models are built, trained, and refined. Use it as
         a quick primer before diving into technical papers or production deployments.
       </p>
