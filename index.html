@@ -30,6 +30,32 @@
       box-sizing: border-box;
     }
 
+    nav.resource-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    nav.resource-links a {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background-color: #e0ecff;
+      color: #1d4ed8;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    nav.resource-links a:hover,
+    nav.resource-links a:focus {
+      background-color: #2563eb;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
     h1 {
       margin-top: 0;
       font-size: clamp(1.8rem, 4vw, 2.4rem);
@@ -163,11 +189,15 @@
     }
   </style>
 </head>
-<body>
-  <main>
-    <h1>CTR Confidence Interval Calculator</h1>
-    <p class="description">
-      Quickly estimate the click-through rate (CTR) and its confidence interval for your campaigns.
+  <body>
+    <main>
+      <nav class="resource-links" aria-label="Additional reports">
+        <a href="intermittent-fasting-overview.html">Intermittent Fasting Overview</a>
+        <a href="large-model-training-essentials.html">Large Model Training Essentials</a>
+      </nav>
+      <h1>CTR Confidence Interval Calculator</h1>
+      <p class="description">
+        Quickly estimate the click-through rate (CTR) and its confidence interval for your campaigns.
       Enter the total number of engagements (clicks) and impressions, adjust the confidence level if needed,
       and review the resulting metrics instantly.
     </p>
