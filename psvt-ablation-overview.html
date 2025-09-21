@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心悸与阵发性室上速：导管消融手术解读</title>
+  <style>
+    :root {
+      font-family: "Noto Sans SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background-color: #f4f5fb;
+      line-height: 1.7;
+    }
+
+    body {
+      margin: 0;
+      padding: 48px 16px 72px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      background: radial-gradient(circle at top left, #eef2ff 0%, #f4f5fb 55%, #ffffff 100%);
+    }
+
+    main {
+      width: min(900px, 100%);
+      background-color: #ffffff;
+      padding: clamp(28px, 5vw, 56px);
+      border-radius: 28px;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-sizing: border-box;
+    }
+
+    header {
+      margin-bottom: 36px;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4.6vw, 2.8rem);
+      letter-spacing: -0.01em;
+      color: #1d2d44;
+    }
+
+    header .lead {
+      margin: 0;
+      color: #475569;
+      font-size: 1.05rem;
+      max-width: 68ch;
+    }
+
+    section + section {
+      margin-top: 44px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.45rem, 3.6vw, 2rem);
+      color: #1e40af;
+      letter-spacing: -0.005em;
+    }
+
+    h3 {
+      margin: 18px 0 12px;
+      font-size: 1.15rem;
+      color: #0f172a;
+    }
+
+    p {
+      margin: 12px 0;
+      color: #334155;
+    }
+
+    ul,
+    ol {
+      margin: 16px 0;
+      padding-left: 24px;
+      color: #475569;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .fact-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .fact-card,
+    .step,
+    .tip {
+      background-color: #f8fafc;
+      border-radius: 18px;
+      padding: 20px 22px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 16px 32px rgba(148, 163, 184, 0.18);
+    }
+
+    .fact-card h3 {
+      margin-top: 0;
+      color: #2563eb;
+      font-size: 1.18rem;
+    }
+
+    .highlight {
+      background-color: #eef2ff;
+      border-radius: 20px;
+      padding: 20px 24px;
+      border-left: 4px solid #4f46e5;
+      color: #3730a3;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+      margin: 28px 0;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .steps strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.98rem;
+    }
+
+    .risk-table thead {
+      background-color: #1e40af;
+      color: #ffffff;
+    }
+
+    .risk-table th,
+    .risk-table td {
+      padding: 12px 14px;
+      border: 1px solid #c7d2fe;
+      vertical-align: top;
+    }
+
+    .risk-table tbody tr:nth-child(odd) {
+      background-color: #eef2ff;
+    }
+
+    .tip-list {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .tip h3 {
+      margin-top: 0;
+      color: #1d4ed8;
+    }
+
+    .callout {
+      margin-top: 40px;
+      padding: 20px 22px;
+      background-color: #fff7ed;
+      border-left: 4px solid #fb923c;
+      border-radius: 18px;
+      color: #9a3412;
+      box-shadow: 0 14px 28px rgba(251, 191, 36, 0.2);
+    }
+
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 32px 12px 56px;
+      }
+
+      main {
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>心悸与阵发性室上速：导管消融手术解读</h1>
+      <p class="lead">
+        本指南帮助你理解心悸和阵发性室上性心动过速（PSVT）的常见诱因、评估方式以及导管消融手术的原理和术后恢复要点，便于与医生沟通并做出知情选择。
+      </p>
+    </header>
+
+    <section aria-labelledby="psvt-basics">
+      <h2 id="psvt-basics">认识心悸与阵发性室上速（PSVT）</h2>
+      <div class="fact-grid">
+        <article class="fact-card">
+          <h3>心悸 ≠ 一定是严重疾病</h3>
+          <p>
+            心悸是对心跳加快、跳漏拍或剧烈跳动的主观感受。它可能来自情绪、咖啡因、贫血、甲状腺异常等生理因素，也可能提示心律失常，需要结合症状、心电图与医生评估。
+          </p>
+        </article>
+        <article class="fact-card">
+          <h3>PSVT 的触发机制</h3>
+          <p>
+            阵发性室上速多由心房或房室结的折返电路造成，常见类型包括房室结折返性心动过速（AVNRT）与房室旁路相关的折返性心动过速（AVRT）。发作时心率可达 150–250 次/分，突然开始又突然停止。
+          </p>
+        </article>
+        <article class="fact-card">
+          <h3>需要警惕的症状</h3>
+          <p>
+            若伴有胸痛、晕厥、呼吸困难、低血压或心力衰竭症状，应立即就医。既往有心脏结构性疾病或心脏手术史的患者更应及早检查。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="evaluation">
+      <h2 id="evaluation">诊断与评估流程</h2>
+      <p>
+        医疗团队会综合病史、体格检查、12 导联心电图、Holter 监测或可穿戴设备记录来确认心律失常类型。对于频繁或不明原因发作，可能需要进行电生理检查（EPS）以定位异常传导路径。
+      </p>
+      <div class="highlight">
+        <strong>提示：</strong> 发作时拍照或记录智能手表心电数据，对医生判断非常有帮助；就诊时携带用药清单与既往检查报告，可提升诊断效率。
+      </div>
+    </section>
+
+    <section aria-labelledby="treatment-options">
+      <h2 id="treatment-options">治疗策略：从急性处理到根治</h2>
+      <h3>急性期自我处理</h3>
+      <ul>
+        <li>迷走神经刺激法（如瓦尔萨尔瓦动作、冷水刺激面部）可帮助中断折返，但需确保安全环境。</li>
+        <li>若症状持续或伴随不适，应立即寻求医疗协助，不要自行驾车前往医院。</li>
+      </ul>
+      <h3>药物治疗</h3>
+      <p>
+        医生可能使用腺苷静脉推注快速终止发作，或开具 β 受体阻滞剂、钙拮抗剂、Ic 类抗心律失常药物以减少复发。然而长期药物可能带来低血压、疲倦等副作用，且不能完全根治。
+      </p>
+      <h3>导管消融：高成功率的根治方案</h3>
+      <p>
+        对于频繁发作、药物效果不佳或不愿长期服药的患者，导管消融（catheter ablation）是循证推荐的一线治疗。其通过射频或冷冻能量破坏折返电路中的异常组织，成功率常在 95% 以上。
+      </p>
+    </section>
+
+    <section aria-labelledby="ablation-info">
+      <h2 id="ablation-info">消融是什么手术？</h2>
+      <p>
+        导管消融属于微创介入手术。医生在腹股沟、颈部或锁骨下穿刺血管，送入细导管至心脏，在 X 光、三维标测系统引导下寻找异常电传导路径，并通过射频能量或冷冻球囊将其“消除”，从而阻断折返。
+      </p>
+      <ol class="steps" aria-label="手术流程">
+        <li class="step">
+          <strong>术前准备</strong>
+          <span>评估凝血功能、肾功能，必要时停用部分抗凝或抗心律失常药物；进手术室前需禁食数小时。</span>
+        </li>
+        <li class="step">
+          <strong>电生理定位</strong>
+          <span>在局麻或浅镇静下，导管记录心内电信号，通过程控刺激诱发心动过速，明确折返环路。</span>
+        </li>
+        <li class="step">
+          <strong>能量消融</strong>
+          <span>定位成功后释放射频（温热）或冷冻能量，使异常传导组织失活，同时实时监控心律和血压。</span>
+        </li>
+        <li class="step">
+          <strong>术后观察</strong>
+          <span>拔除鞘管后需压迫止血并卧床数小时，监测穿刺部位与心律变化。多数患者 1 天内可出院。</span>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="risk">
+      <h2 id="risk">风险、后遗症与预后</h2>
+      <p>
+        总体而言，针对 PSVT 的导管消融安全性高，严重并发症发生率低于 1%。但任何介入操作都可能有风险，知晓并与医生充分沟通十分重要。
+      </p>
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th scope="col">可能情况</th>
+            <th scope="col">发生概率与处理</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>穿刺部位出血或血肿</td>
+            <td>较常见但多为轻度，通过压迫、冷敷即可缓解。少数可能出现血管损伤，需进一步处理。</td>
+          </tr>
+          <tr>
+            <td>心律传导受损</td>
+            <td>罕见情况下，消融可能影响房室结，导致缓慢心律甚至需要植入起搏器。手术中会严格监测以避免。</td>
+          </tr>
+          <tr>
+            <td>血栓或栓塞事件</td>
+            <td>极少发生，通过术中抗凝和术后短期抗凝用药降低风险。如出现肢体麻木、语言障碍需紧急就医。</td>
+          </tr>
+          <tr>
+            <td>复发</td>
+            <td>部分患者（约 3–5%）可能复发，尤其是多条旁路或复杂解剖者，可再次评估消融或其他治疗。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <strong>有没有严重后遗症？</strong> 对大多数人而言并无长期后遗症，术后生活质量常显著改善。极少数出现持久性并发症，如房室传导阻滞或持续性穿刺部位不适，需要后续治疗。定期随访能帮助尽早发现并处理问题。
+      </div>
+    </section>
+
+    <section aria-labelledby="recovery">
+      <h2 id="recovery">术后恢复与日常管理</h2>
+      <div class="tip-list">
+        <article class="tip">
+          <h3>出院后注意事项</h3>
+          <p>48 小时内避免剧烈运动与提重物，保持穿刺点清洁干燥，若出现持续出血或肿胀及时复诊。</p>
+        </article>
+        <article class="tip">
+          <h3>生活方式调整</h3>
+          <p>规律睡眠、控制咖啡因与酒精摄入、避免暴饮暴食，适度运动可帮助减少触发因素。</p>
+        </article>
+        <article class="tip">
+          <h3>情绪与压力管理</h3>
+          <p>冥想、深呼吸或心理咨询有助于缓解焦虑。记录心律与情绪变化，方便与医疗团队沟通。</p>
+        </article>
+      </div>
+      <div class="callout" role="note">
+        <strong>何时应立即就医？</strong> 若术后出现持续胸痛、明显呼吸困难、发热、心跳紊乱或腿部肿胀、麻木等症状，请尽快联系医生或急诊部门。
+      </div>
+    </section>
+
+    <footer>
+      本文仅作健康教育参考，具体诊疗方案请遵循心血管专科医生的个体化建议。
+    </footer>
+  </main>
+</body>
+</html>
