@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTR Confidence Interval Calculator</title>
+  <style>
+    :root {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fb;
+      color: #1e1f21;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 16px 64px;
+      box-sizing: border-box;
+    }
+
+    main {
+      width: min(720px, 100%);
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+      padding: 32px clamp(24px, 5vw, 56px);
+      box-sizing: border-box;
+    }
+
+    nav.resource-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    nav.resource-links a {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background-color: #e0ecff;
+      color: #1d4ed8;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    nav.resource-links a:hover,
+    nav.resource-links a:focus {
+      background-color: #2563eb;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      text-align: center;
+      color: #1f2937;
+    }
+
+    p.description {
+      text-align: center;
+      color: #4b5563;
+      margin-bottom: 32px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    input, select {
+      padding: 12px 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      background-color: #f9fafb;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+      background-color: #ffffff;
+    }
+
+    button {
+      padding: 14px 18px;
+      font-size: 1.05rem;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
+    }
+
+    .results {
+      margin-top: 36px;
+      background-color: #f1f5f9;
+      border-radius: 14px;
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .results h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      color: #1f2937;
+    }
+
+    .metric-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .metric-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+    }
+
+    .metric-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .metric-card p {
+      margin: 8px 0 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .error {
+      color: #dc2626;
+      background-color: #fee2e2;
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: -8px;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 24px 12px 48px;
+      }
+
+      .metric-card p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+  <body>
+    <main>
+      <nav class="resource-links" aria-label="Resource navigation">
+        <a href="index.html">Analytics Resource Hub</a>
+        <a href="youth-competitive-soccer-us.html">Competitive Youth Soccer in the U.S.</a>
+        <a href="intermittent-fasting-overview.html">Intermittent Fasting Overview</a>
+        <a href="large-model-training-essentials.html">Large Model Training Essentials</a>
+      </nav>
+      <h1>CTR Confidence Interval Calculator</h1>
+      <p class="description">
+        Quickly estimate the click-through rate (CTR) and its confidence interval for your campaigns.
+      Enter the total number of engagements (clicks) and impressions, adjust the confidence level if needed,
+      and review the resulting metrics instantly.
+    </p>
+
+    <form id="ctr-form" novalidate>
+      <div class="field">
+        <label for="engagement">Engagements (clicks)</label>
+        <input id="engagement" name="engagement" type="number" min="0" step="1" placeholder="e.g. 420" required>
+      </div>
+
+      <div class="field">
+        <label for="impressions">Impressions</label>
+        <input id="impressions" name="impressions" type="number" min="1" step="1" placeholder="e.g. 12000" required>
+      </div>
+
+      <div class="field">
+        <label for="confidence">Confidence level</label>
+        <select id="confidence" name="confidence">
+          <option value="90">90%</option>
+          <option value="95" selected>95%</option>
+          <option value="98">98%</option>
+          <option value="99">99%</option>
+        </select>
+      </div>
+
+      <button type="submit">Calculate</button>
+      <div id="error" class="error" hidden></div>
+    </form>
+
+    <section class="results" aria-live="polite" aria-atomic="true">
+      <h2>Results</h2>
+      <div class="metric-grid">
+        <article class="metric-card">
+          <h3>Click-Through Rate</h3>
+          <p id="ctr">–</p>
+        </article>
+        <article class="metric-card">
+          <h3>Standard Error</h3>
+          <p id="standard-error">–</p>
+        </article>
+        <article class="metric-card">
+          <h3>Margin of Error</h3>
+          <p id="margin-of-error">–</p>
+        </article>
+      </div>
+      <article class="metric-card">
+        <h3>Confidence Interval</h3>
+        <p id="confidence-interval">–</p>
+      </article>
+    </section>
+
+    <footer>
+      Calculations use a normal approximation (Wald interval). Ensure impressions are sufficiently large for accurate results.
+    </footer>
+  </main>
+
+  <script>
+    const zScores = {
+      90: 1.6448536269514722,
+      95: 1.959963984540054,
+      98: 2.3263478740408408,
+      99: 2.5758293035489004
+    };
+
+    const ctrForm = document.getElementById('ctr-form');
+    const engagementInput = document.getElementById('engagement');
+    const impressionsInput = document.getElementById('impressions');
+    const confidenceInput = document.getElementById('confidence');
+    const ctrOutput = document.getElementById('ctr');
+    const standardErrorOutput = document.getElementById('standard-error');
+    const marginOutput = document.getElementById('margin-of-error');
+    const intervalOutput = document.getElementById('confidence-interval');
+    const errorBox = document.getElementById('error');
+
+    function formatPercent(value) {
+      return (value * 100).toLocaleString(undefined, {
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2
+      }) + '%';
+    }
+
+    function formatDecimal(value) {
+      return value.toLocaleString(undefined, {
+        maximumFractionDigits: 4,
+        minimumFractionDigits: 4
+      });
+    }
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.hidden = false;
+    }
+
+    function clearError() {
+      errorBox.hidden = true;
+      errorBox.textContent = '';
+    }
+
+    function updateResults({ ctr, standardError, margin, lowerBound, upperBound }) {
+      ctrOutput.textContent = formatPercent(ctr);
+      standardErrorOutput.textContent = formatDecimal(standardError);
+      marginOutput.textContent = formatPercent(margin);
+      intervalOutput.textContent = `${formatPercent(lowerBound)} – ${formatPercent(upperBound)}`;
+    }
+
+    function calculateMetrics(engagements, impressions, zScore) {
+      const ctr = engagements / impressions;
+      const variance = ctr * (1 - ctr) / impressions;
+      const standardError = Math.sqrt(variance);
+      const margin = zScore * standardError;
+      const lowerBound = Math.max(ctr - margin, 0);
+      const upperBound = Math.min(ctr + margin, 1);
+
+      return { ctr, standardError, margin, lowerBound, upperBound };
+    }
+
+    ctrForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const engagements = Number(engagementInput.value);
+      const impressions = Number(impressionsInput.value);
+      const confidenceLevel = Number(confidenceInput.value);
+
+      clearError();
+
+      if (!Number.isFinite(engagements) || engagements < 0) {
+        showError('Please enter a non-negative number of engagements.');
+        return;
+      }
+
+      if (!Number.isFinite(impressions) || impressions <= 0) {
+        showError('Impressions must be a positive number.');
+        return;
+      }
+
+      if (engagements > impressions) {
+        showError('Engagements cannot exceed impressions.');
+        return;
+      }
+
+      const zScore = zScores[confidenceLevel];
+      if (!zScore) {
+        showError('Unsupported confidence level.');
+        return;
+      }
+
+      const metrics = calculateMetrics(engagements, impressions, zScore);
+      updateResults(metrics);
+    });
+
+    // Provide sample default values to demonstrate the calculator.
+    engagementInput.value = '420';
+    impressionsInput.value = '12000';
+    ctrForm.dispatchEvent(new Event('submit'));
+  </script>
+</body>
+</html>
