@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playful SVG Illustration Gallery</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body.page-svg-gallery {
+      --body-background: radial-gradient(circle at top, #eef2ff, #f8fafc 48%, #e0f2fe 100%);
+    }
+
+    .svg-gallery {
+      display: grid;
+      gap: 28px;
+    }
+
+    .svg-card {
+      display: grid;
+      gap: 20px;
+      background-color: var(--card-background);
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: var(--card-padding);
+      align-items: center;
+    }
+
+    @media (min-width: 720px) {
+      .svg-card {
+        grid-template-columns: minmax(260px, 1fr) 1fr;
+      }
+    }
+
+    .svg-card figure {
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .svg-card svg {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.24), 0 12px 24px rgba(30, 64, 175, 0.18);
+    }
+
+    .svg-card figcaption {
+      font-size: 0.95rem;
+      color: var(--muted-text-color);
+    }
+
+    .svg-card .card-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .techniques {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .techniques li {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(129, 140, 248, 0.24));
+      color: #1d4ed8;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+      font-weight: 600;
+    }
+
+    .tip-callout {
+      margin-top: 36px;
+      background: linear-gradient(135deg, rgba(14, 116, 144, 0.12), rgba(45, 212, 191, 0.18));
+      border-radius: 18px;
+      padding: 22px 24px;
+      border-left: 4px solid #0d9488;
+      box-shadow: 0 18px 32px rgba(13, 148, 136, 0.18);
+      color: #0f766e;
+    }
+
+    .tip-callout h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #0f172a;
+    }
+
+    .tip-callout ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body class="page-svg-gallery">
+  <main>
+    <header>
+      <h1>Playful SVG Illustration Gallery</h1>
+      <p class="lead">
+        Experiment with inline SVG to craft friendly characters, cheerful sweets, and whimsical animals.
+        Each illustration below is composed entirely of shapes, gradients, and strokes that you can edit directly in markup.
+      </p>
+    </header>
+
+    <section aria-labelledby="why-svg">
+      <h2 id="why-svg">Why illustrate with SVG?</h2>
+      <p>
+        SVG (Scalable Vector Graphics) keeps your artwork crisp at any size, encourages semantic structure, and unlocks smooth motion with CSS or JavaScript.
+        Because every curve is defined in markup, you can tweak colors, coordinates, or filters quickly to explore new looks.
+      </p>
+      <ul>
+        <li><strong>Infinite scaling:</strong> No blurry edges or pixelation on high-density screens or large-format posters.</li>
+        <li><strong>Accessibility ready:</strong> Titles and descriptions live alongside paths, making it easy to support screen reader users.</li>
+        <li><strong>Animation friendly:</strong> Individual shapes can be targeted for hover states, micro-interactions, or full motion sequences.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Featured illustrations</h2>
+      <div class="svg-gallery">
+        <article class="svg-card" aria-labelledby="bunny-heading">
+          <figure>
+            <svg viewBox="0 0 260 220" role="img" aria-labelledby="bunny-title bunny-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="bunny-title">Morning meadow bunny</title>
+              <desc id="bunny-desc">A pastel bunny with long ears, rosy cheeks, and a flower crown resting on soft green hills.</desc>
+              <defs>
+                <linearGradient id="bunny-sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#fdf2f8" />
+                  <stop offset="100%" stop-color="#fce7f3" />
+                </linearGradient>
+                <radialGradient id="bunny-blush" cx="0.5" cy="0.5" r="0.6">
+                  <stop offset="0%" stop-color="#fbcfe8" stop-opacity="0.8" />
+                  <stop offset="100%" stop-color="#f472b6" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <rect width="260" height="220" rx="22" fill="url(#bunny-sky)" />
+              <path d="M0 170 Q60 150 130 168 T260 170 V220 H0 Z" fill="#bbf7d0" opacity="0.9" />
+              <path d="M20 200 Q70 150 130 190 T240 200" fill="none" stroke="#86efac" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+              <g stroke="#f9a8d4" stroke-width="2.2" stroke-linejoin="round">
+                <path d="M102 48 Q90 -6 112 8 Q132 -8 128 48 Z" fill="#fdf2f8" />
+                <path d="M158 48 Q170 -6 148 8 Q128 -8 132 48 Z" fill="#fdf2f8" />
+              </g>
+              <g>
+                <path d="M108 46 Q99 0 117 12 Q129 2 126 42 Z" fill="#fbcfe8" opacity="0.85" />
+                <path d="M152 46 Q161 0 143 12 Q131 2 134 42 Z" fill="#fbcfe8" opacity="0.85" />
+              </g>
+              <ellipse cx="130" cy="152" rx="56" ry="60" fill="#fef9fb" stroke="#f9a8d4" stroke-width="2" />
+              <ellipse cx="130" cy="98" rx="44" ry="48" fill="#fef9fb" stroke="#f9a8d4" stroke-width="2" />
+              <ellipse cx="95" cy="150" rx="16" ry="24" fill="#fef9fb" stroke="#f9a8d4" stroke-width="2" />
+              <ellipse cx="165" cy="150" rx="16" ry="24" fill="#fef9fb" stroke="#f9a8d4" stroke-width="2" />
+              <ellipse cx="110" cy="173" rx="24" ry="18" fill="#fef2f7" stroke="#f9a8d4" stroke-width="2" />
+              <ellipse cx="150" cy="173" rx="24" ry="18" fill="#fef2f7" stroke="#f9a8d4" stroke-width="2" />
+              <circle cx="174" cy="138" r="10" fill="#fef9fb" stroke="#f9a8d4" stroke-width="2" />
+              <circle cx="96" cy="138" r="10" fill="#fef9fb" stroke="#f9a8d4" stroke-width="2" />
+              <circle cx="114" cy="96" r="6.5" fill="#1f2937" opacity="0.85" />
+              <circle cx="146" cy="96" r="6.5" fill="#1f2937" opacity="0.85" />
+              <circle cx="114" cy="100" r="2" fill="#fef2f8" />
+              <circle cx="146" cy="100" r="2" fill="#fef2f8" />
+              <path d="M124 112 Q130 118 136 112" fill="#f472b6" />
+              <path d="M130 118 Q126 126 120 124" stroke="#f9a8d4" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M130 118 Q134 126 140 124" stroke="#f9a8d4" stroke-width="2" stroke-linecap="round" fill="none" />
+              <ellipse cx="108" cy="118" rx="12" ry="10" fill="url(#bunny-blush)" />
+              <ellipse cx="152" cy="118" rx="12" ry="10" fill="url(#bunny-blush)" />
+              <g stroke="#f9a8d4" stroke-width="2" stroke-linecap="round">
+                <line x1="92" y1="112" x2="70" y2="108" />
+                <line x1="94" y1="120" x2="68" y2="125" />
+                <line x1="168" y1="112" x2="190" y2="108" />
+                <line x1="166" y1="120" x2="192" y2="125" />
+              </g>
+              <g transform="translate(130 60)">
+                <circle cx="-28" cy="18" r="6" fill="#f87171" />
+                <circle cx="-20" cy="4" r="5" fill="#fb7185" />
+                <circle cx="-12" cy="18" r="4" fill="#facc15" />
+                <circle cx="24" cy="18" r="6" fill="#f97316" />
+                <circle cx="16" cy="4" r="5" fill="#60a5fa" />
+                <circle cx="8" cy="18" r="4" fill="#34d399" />
+              </g>
+              <path d="M60 196 C 72 176 88 176 102 196" fill="#34d399" opacity="0.65" />
+              <path d="M176 196 C 188 176 204 176 218 196" fill="#34d399" opacity="0.65" />
+            </svg>
+            <figcaption>Layer soft gradients and repeating ellipses to give your character plush volume and friendly expression.</figcaption>
+          </figure>
+          <div class="card-copy">
+            <h3 id="bunny-heading">Garden Bunny portrait</h3>
+            <p>
+              The bunny combines mirrored ear paths, stacked ellipses for the body, and subtle blush gradients for a welcoming look.
+              Whiskers and floral accents are simple strokes and circles, proving you do not need complex paths to convey charm.
+            </p>
+            <ul class="techniques" aria-label="SVG techniques used in the bunny illustration">
+              <li>Mirrored shapes</li>
+              <li>Radial gradients</li>
+              <li>Stroke accents</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svg-card" aria-labelledby="candy-heading">
+          <figure>
+            <svg viewBox="0 0 260 220" role="img" aria-labelledby="candy-title candy-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="candy-title">Gleaming wrapped candy</title>
+              <desc id="candy-desc">A sparkling piece of wrapped candy with swirling stripes and ribboned ends in shades of pink, coral, and gold.</desc>
+              <defs>
+                <linearGradient id="candy-bg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fef3c7" />
+                  <stop offset="100%" stop-color="#fde68a" />
+                </linearGradient>
+                <radialGradient id="candy-glow" cx="0.5" cy="0.4" r="0.7">
+                  <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#f472b6" stop-opacity="0" />
+                </radialGradient>
+                <clipPath id="candy-clip">
+                  <circle cx="130" cy="110" r="76" />
+                </clipPath>
+              </defs>
+              <rect width="260" height="220" rx="22" fill="url(#candy-bg)" />
+              <g fill="none" stroke-linecap="round" stroke-width="10" stroke="#fbbf24" opacity="0.45">
+                <path d="M30 70 Q80 40 120 70" />
+                <path d="M160 60 Q200 40 230 70" />
+                <path d="M40 170 Q80 140 120 160" />
+              </g>
+              <g>
+                <path d="M48 116 C 28 96 32 70 62 56 L 90 72 C 64 86 66 118 90 132 Z" fill="#fda4af" opacity="0.85" />
+                <path d="M212 116 C 232 96 228 70 198 56 L 170 72 C 196 86 194 118 170 132 Z" fill="#fb7185" opacity="0.85" />
+              </g>
+              <g clip-path="url(#candy-clip)">
+                <circle cx="130" cy="110" r="76" fill="#fee2e2" />
+                <circle cx="130" cy="110" r="76" fill="url(#candy-glow)" />
+                <path d="M54 102 C 84 32 186 20 220 104 C 240 154 198 182 150 176" fill="none" stroke="#f472b6" stroke-width="28" stroke-linecap="round" />
+                <path d="M48 130 C 76 190 182 200 212 120" fill="none" stroke="#f97316" stroke-width="22" stroke-linecap="round" opacity="0.92" />
+                <path d="M78 140 C 118 176 174 158 194 118" fill="none" stroke="#facc15" stroke-width="16" stroke-linecap="round" opacity="0.85" />
+                <circle cx="122" cy="90" r="32" fill="rgba(255,255,255,0.28)" />
+                <circle cx="150" cy="132" r="18" fill="rgba(255,255,255,0.2)" />
+              </g>
+              <g fill="#fef3c7" opacity="0.9">
+                <circle cx="70" cy="78" r="6" />
+                <circle cx="94" cy="60" r="4" />
+                <circle cx="56" cy="148" r="5" />
+                <circle cx="204" cy="66" r="6" />
+                <circle cx="184" cy="154" r="5" />
+              </g>
+              <g stroke="#f97316" stroke-width="3" stroke-linecap="round">
+                <path d="M60 112 Q60 92 78 86" />
+                <path d="M200 112 Q200 92 182 86" />
+              </g>
+            </svg>
+            <figcaption>Use clip paths and wide strokes to paint candy stripes that stay neatly inside a circular wrapper.</figcaption>
+          </figure>
+          <div class="card-copy">
+            <h3 id="candy-heading">Swirled candy centerpiece</h3>
+            <p>
+              The candy relies on a clipped group to keep broad strokes within a circle, creating smooth swirling ribbons.
+              Ribboned ends use only a few Bézier curves, while floating sparkles give the scene a glassy, celebratory finish.
+            </p>
+            <ul class="techniques" aria-label="SVG techniques used in the candy illustration">
+              <li>Clip paths</li>
+              <li>Layered strokes</li>
+              <li>Radial glow</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svg-card" aria-labelledby="elephant-heading">
+          <figure>
+            <svg viewBox="0 0 260 220" role="img" aria-labelledby="elephant-title elephant-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="elephant-title">Playful turquoise elephant</title>
+              <desc id="elephant-desc">A bright turquoise elephant with a curved trunk, oversized ear, and water splashes on a sunlit savanna.</desc>
+              <defs>
+                <linearGradient id="elephant-sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#bfdbfe" />
+                  <stop offset="100%" stop-color="#e0f2fe" />
+                </linearGradient>
+                <linearGradient id="elephant-ground" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#fcd34d" />
+                  <stop offset="100%" stop-color="#fbbf24" />
+                </linearGradient>
+                <radialGradient id="elephant-body" cx="0.4" cy="0.3" r="0.8">
+                  <stop offset="0%" stop-color="#5eead4" />
+                  <stop offset="100%" stop-color="#0ea5e9" />
+                </radialGradient>
+              </defs>
+              <rect width="260" height="220" rx="22" fill="url(#elephant-sky)" />
+              <path d="M0 180 Q80 150 140 180 T260 180 V220 H0 Z" fill="url(#elephant-ground)" />
+              <circle cx="210" cy="50" r="28" fill="#fde68a" opacity="0.9" />
+              <path d="M60 182 C 84 162 98 158 126 182" fill="#fcd34d" opacity="0.7" />
+              <path d="M118 182 C 142 162 162 160 186 182" fill="#fcd34d" opacity="0.7" />
+              <g>
+                <ellipse cx="164" cy="112" rx="58" ry="52" fill="url(#elephant-body)" />
+                <ellipse cx="114" cy="116" rx="50" ry="46" fill="url(#elephant-body)" />
+                <ellipse cx="104" cy="122" rx="52" ry="44" fill="#99f6e4" opacity="0.5" />
+                <path d="M96 104 C 64 102 54 140 82 150 Q70 138 90 130 Z" fill="#67e8f9" />
+                <path d="M90 112 C 60 110 46 146 70 164 C 88 176 112 168 120 152 Z" fill="#22d3ee" />
+                <path d="M70 138 C 52 136 44 160 62 172 C 76 182 98 176 104 164 Z" fill="#2dd4bf" opacity="0.82" />
+                <path d="M150 138 C 132 150 128 176 148 188 C 166 198 186 192 196 180 L 182 128 Z" fill="#0ea5e9" />
+              </g>
+              <ellipse cx="88" cy="118" rx="48" ry="42" fill="#5eead4" />
+              <ellipse cx="96" cy="118" rx="42" ry="38" fill="#22d3ee" />
+              <ellipse cx="92" cy="118" rx="36" ry="34" fill="#67e8f9" />
+              <circle cx="88" cy="110" r="38" fill="#99f6e4" />
+              <circle cx="88" cy="110" r="32" fill="#ccfbf1" />
+              <ellipse cx="178" cy="110" rx="50" ry="44" fill="#22d3ee" />
+              <ellipse cx="182" cy="110" rx="46" ry="40" fill="#38bdf8" />
+              <ellipse cx="184" cy="110" rx="40" ry="36" fill="#5eead4" />
+              <ellipse cx="192" cy="116" rx="36" ry="32" fill="#99f6e4" />
+              <circle cx="100" cy="96" r="34" fill="#5eead4" />
+              <circle cx="100" cy="96" r="30" fill="#2dd4bf" />
+              <ellipse cx="110" cy="104" rx="30" ry="26" fill="#99f6e4" />
+              <path d="M110 94 C 82 86 60 112 70 138 C 82 166 118 166 130 142 C 138 126 124 100 110 94 Z" fill="#5eead4" />
+              <path d="M72 122 C 58 120 52 140 64 152 C 72 160 90 158 96 146 C 100 136 86 124 72 122 Z" fill="#34d399" opacity="0.8" />
+              <ellipse cx="170" cy="162" rx="28" ry="16" fill="#0284c7" />
+              <ellipse cx="170" cy="162" rx="24" ry="14" fill="#0ea5e9" />
+              <ellipse cx="170" cy="162" rx="16" ry="10" fill="#38bdf8" />
+              <circle cx="134" cy="114" r="8" fill="#0f172a" />
+              <circle cx="134" cy="112" r="3" fill="#e0f2fe" />
+              <circle cx="120" cy="128" r="6" fill="#fbcfe8" opacity="0.8" />
+              <path d="M140 120 Q144 132 160 130" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+              <path d="M68 156 C 70 140 84 132 98 136" stroke="#0ea5e9" stroke-width="10" stroke-linecap="round" fill="none" />
+              <g fill="#bae6fd" opacity="0.88">
+                <circle cx="150" cy="60" r="8" />
+                <circle cx="170" cy="48" r="6" />
+                <circle cx="166" cy="68" r="5" />
+              </g>
+              <g fill="#38bdf8" opacity="0.85">
+                <circle cx="188" cy="58" r="5" />
+                <circle cx="200" cy="46" r="4" />
+                <circle cx="194" cy="68" r="3" />
+              </g>
+              <g fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round">
+                <path d="M180 80 Q202 70 212 76" />
+                <path d="M184 92 Q206 84 216 90" />
+              </g>
+            </svg>
+            <figcaption>Blend overlapping ellipses and gradients to sculpt a round, friendly elephant without complex path math.</figcaption>
+          </figure>
+          <div class="card-copy">
+            <h3 id="elephant-heading">Splash-ready elephant</h3>
+            <p>
+              This elephant emphasizes re-usable geometry: the body, ear, and legs all start as ellipses with varied fills.
+              A bright gradient sky and sparkling water droplets provide contrast that keeps the turquoise palette feeling lively.
+            </p>
+            <ul class="techniques" aria-label="SVG techniques used in the elephant illustration">
+              <li>Layered ellipses</li>
+              <li>Linear gradients</li>
+              <li>Highlight circles</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="tip-callout" aria-labelledby="tip-heading">
+      <h3 id="tip-heading">Ready to remix these scenes?</h3>
+      <ul>
+        <li>Swap gradient stops to instantly transform the mood—cool blues become sunset pinks with a single edit.</li>
+        <li>Adjust the <code>stroke-width</code> on candy stripes or whiskers to push the cartoon style louder or softer.</li>
+        <li>Add <code>&lt;animate&gt;</code> elements for twinkling sparkles or a waving trunk once you like the static composition.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      Have a favorite creature or treat you would like to see next? Duplicate a card, tweak the shapes, and build your own SVG menagerie.
+    </footer>
+  </main>
+</body>
+</html>
