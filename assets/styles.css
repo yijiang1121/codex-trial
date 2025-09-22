@@ -744,3 +744,103 @@ body.page-electric header .lead {
   font-size: 1.08rem;
 }
 
+
+body.page-speech {
+  --page-background: #f2f5ff;
+  --body-background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.16), transparent 45%),
+    #f2f5ff;
+  --body-padding: clamp(32px, 6vw, 72px) 18px clamp(48px, 9vw, 96px);
+  --body-padding-mobile: 28px 12px 56px;
+  --main-max-width: 960px;
+  --main-padding: clamp(32px, 5vw, 60px);
+  --main-radius: 28px;
+  --main-radius-mobile: 22px;
+  --main-shadow: 0 28px 56px rgba(15, 23, 42, 0.16);
+  --main-border: 1px solid rgba(148, 163, 184, 0.24);
+  --header-align: center;
+  --header-spacing: clamp(28px, 5vw, 44px);
+  --hero-heading-size: clamp(2.1rem, 4.2vw, 2.9rem);
+  --section-spacing: clamp(32px, 6vw, 52px);
+  --heading-color: #1d2d44;
+  --subheading-color: #1f2937;
+  --accent-color: #1d4ed8;
+  --body-text-color: #1f2937;
+  --muted-text-color: #475569;
+  --list-text-color: #475569;
+}
+
+body.page-speech header .lead {
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+body.page-speech .speech-text {
+  display: grid;
+  gap: 18px;
+  font-size: 1.05rem;
+}
+
+body.page-speech .speech-text p {
+  margin: 0;
+}
+
+body.page-speech .revision-section > p {
+  max-width: 720px;
+  margin: 12px auto 28px;
+  color: var(--muted-text-color);
+}
+
+body.page-speech .revision-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+body.page-speech .revision-card {
+  background-color: #ffffff;
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+body.page-speech .revision-card h3 {
+  margin: 0;
+  color: var(--accent-color);
+  font-size: 1.12rem;
+}
+
+body.page-speech .revision-pair {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 8px;
+}
+
+body.page-speech .revision-pair.revised {
+  background-color: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+body.page-speech .revision-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+body.page-speech mark {
+  background-color: #fde68a;
+  color: #92400e;
+  padding: 0 4px;
+  border-radius: 4px;
+  box-shadow: inset 0 -1px 0 rgba(234, 179, 8, 0.4);
+}
+
