@@ -94,6 +94,44 @@
       margin: 0;
       padding-left: 20px;
     }
+
+    .venn-section {
+      margin-top: 48px;
+    }
+
+    .venn-diagram text {
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .venn-diagram .label-title {
+      font-size: 15px;
+      font-weight: 600;
+      fill: #0f172a;
+    }
+
+    .venn-diagram .label-detail {
+      font-size: 13px;
+      font-weight: 500;
+      fill: #475569;
+    }
+
+    .venn-diagram .annotation-line {
+      stroke: #0f172a;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .venn-diagram .division-curve {
+      stroke: #fb923c;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .venn-diagram .annotation-line.thin {
+      stroke-width: 1.6;
+    }
   </style>
 </head>
 <body class="page-svg-gallery">
@@ -345,6 +383,117 @@
               <li>Layered ellipses</li>
               <li>Linear gradients</li>
               <li>Highlight circles</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="venn-section" aria-labelledby="venn-showcase">
+      <h2 id="venn-showcase">SVG Venn diagram showcase</h2>
+      <p>
+        Compare overlapping ideas with precise geometry and thoughtful annotations. These diagrams demonstrate how transparent fills,
+        clip paths, and arrow markers can turn abstract relationships into clear stories.
+      </p>
+      <div class="svg-gallery">
+        <article class="svg-card" aria-labelledby="school-venn-heading">
+          <figure>
+            <svg viewBox="0 0 320 240" class="venn-diagram" role="img" aria-labelledby="school-venn-title school-venn-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="school-venn-title">Two-circle Venn diagram comparing student activities</title>
+              <desc id="school-venn-desc">Two overlapping circles show students who play soccer, students who play piano, and the overlap representing students who balance both activities.</desc>
+              <defs>
+                <clipPath id="soccer-circle">
+                  <circle cx="140" cy="132" r="94" />
+                </clipPath>
+              </defs>
+              <rect width="320" height="240" rx="24" fill="#f8fafc" />
+              <g>
+                <circle cx="140" cy="132" r="94" fill="#38bdf8" fill-opacity="0.45" stroke="#0ea5e9" stroke-width="4" />
+                <circle cx="206" cy="128" r="84" fill="#a855f7" fill-opacity="0.42" stroke="#7c3aed" stroke-width="4" />
+              </g>
+              <g clip-path="url(#soccer-circle)">
+                <circle cx="206" cy="128" r="84" fill="#fef08a" fill-opacity="0.55" />
+              </g>
+              <text x="104" y="68" text-anchor="middle" class="label-title">
+                <tspan x="104" dy="0">Students who</tspan>
+                <tspan x="104" dy="18">play soccer</tspan>
+              </text>
+              <text x="238" y="64" text-anchor="middle" class="label-title">
+                <tspan x="238" dy="0">Students who</tspan>
+                <tspan x="238" dy="18">play piano</tspan>
+              </text>
+              <text x="172" y="124" text-anchor="middle" class="label-title">Both teams</text>
+              <text x="172" y="146" text-anchor="middle" class="label-detail">Friends juggling practice &amp; recitals</text>
+              <text x="92" y="182" text-anchor="middle" class="label-detail">Weekend tournaments</text>
+              <text x="252" y="180" text-anchor="middle" class="label-detail">Winter recitals</text>
+            </svg>
+            <figcaption>Transparent fills and a clipped highlight emphasize how student musicians and athletes overlap.</figcaption>
+          </figure>
+          <div class="card-copy">
+            <h3 id="school-venn-heading">Traditional two-circle comparison</h3>
+            <p>
+              Two simple circles, one slightly larger than the other, map athletic and musical commitments. A clipped highlight spotlights
+              students who juggle soccer drills with piano practice, making the shared space easy to read at a glance.
+            </p>
+            <ul class="techniques" aria-label="SVG techniques used in the two-circle Venn diagram">
+              <li>Clip path overlap</li>
+              <li>Transparent fills</li>
+              <li>Circle geometry</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svg-card" aria-labelledby="annotated-venn-heading">
+          <figure>
+            <svg viewBox="0 0 360 240" class="venn-diagram" role="img" aria-labelledby="annotated-venn-title annotated-venn-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="annotated-venn-title">Annotated oval-based Venn diagram for workshop planning</title>
+              <desc id="annotated-venn-desc">Two overlapping ovals represent sustainability projects and creative labs. Arrow annotations explain each region, and curved dividers split the right oval into three labeled initiatives.</desc>
+              <defs>
+                <clipPath id="oval-a">
+                  <ellipse cx="150" cy="134" rx="110" ry="80" />
+                </clipPath>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0 0 L10 5 L0 10 Z" fill="#0f172a" />
+                </marker>
+              </defs>
+              <rect width="360" height="240" rx="24" fill="#f8fafc" />
+              <g opacity="0.55">
+                <ellipse cx="150" cy="134" rx="110" ry="80" fill="#34d399" stroke="#10b981" stroke-width="4" />
+                <ellipse cx="242" cy="128" rx="110" ry="84" fill="#f59e0b" stroke="#d97706" stroke-width="4" />
+              </g>
+              <g clip-path="url(#oval-a)">
+                <ellipse cx="242" cy="128" rx="110" ry="84" fill="#fde68a" fill-opacity="0.65" />
+              </g>
+              <path class="division-curve" d="M214 66 Q236 128 214 198" />
+              <path class="division-curve" d="M252 60 Q292 128 252 206" />
+              <text x="46" y="72" class="label-title">Set A: Garden makers</text>
+              <text x="46" y="90" class="label-detail">Workshops on composting &amp; pollinator plots</text>
+              <path class="annotation-line" d="M92 100 C 108 114 102 128 86 140" marker-end="url(#arrowhead)" />
+              <text x="170" y="214" text-anchor="middle" class="label-title">Shared green art space</text>
+              <text x="170" y="232" text-anchor="middle" class="label-detail">Students weaving sustainability into design</text>
+              <path class="annotation-line" d="M170 204 C 170 188 176 170 190 158" marker-end="url(#arrowhead)" />
+              <text x="310" y="60" class="label-title">Set B: Creative lab</text>
+              <text x="310" y="78" class="label-detail">Sessions focused on visual storytelling</text>
+              <path class="annotation-line" d="M292 84 C 280 96 274 108 266 124" marker-end="url(#arrowhead)" />
+              <text x="324" y="116" class="label-detail">Sketch studio</text>
+              <path class="annotation-line thin" d="M300 114 C 286 108 276 104 266 100" marker-end="url(#arrowhead)" />
+              <text x="324" y="142" class="label-detail">Digital prototypes</text>
+              <path class="annotation-line thin" d="M300 140 C 286 138 280 142 274 144" marker-end="url(#arrowhead)" />
+              <text x="324" y="172" class="label-detail">Exhibit curation</text>
+              <path class="annotation-line thin" d="M300 170 C 286 170 278 176 268 188" marker-end="url(#arrowhead)" />
+            </svg>
+            <figcaption>Ovals, markers, and curved dividers transform a simple overlap chart into a richly annotated workshop plan.</figcaption>
+          </figure>
+          <div class="card-copy">
+            <h3 id="annotated-venn-heading">Annotated oval-based planning map</h3>
+            <p>
+              Swapping perfect circles for ovals creates a broader canvas for annotations. Curved dividers carve the creative lab into three
+              initiatives, while directional arrows guide readers to each collaboration opportunity between sustainability and design teams.
+            </p>
+            <ul class="techniques" aria-label="SVG techniques used in the annotated Venn diagram">
+              <li>Arrow markers</li>
+              <li>Curved segmentation</li>
+              <li>Clip path intersection</li>
             </ul>
           </div>
         </article>
